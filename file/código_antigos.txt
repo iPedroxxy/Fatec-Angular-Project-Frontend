@@ -1,0 +1,120 @@
+home.component.ts
+  pessoaNome = "Pedro"; //Aspas criam strings (textos)
+  pessoaSobrenome = 'Piras'; //Igual aspas, mas mais utilizado no TS
+  pessoaNome2 = "Larah";
+  pessoaSobrenome2 = 'Forte';
+  // Crase permite adicionar váriaveis diretamente no texto.
+  completo = `Os nomes são: ${this.pessoaNome} ${this.pessoaSobrenome} e ${this.pessoaNome2} ${this.pessoaSobrenome2}!`;
+  // Mesmo código com concatenação.
+  concatenado = `Os nomes das pessoas são + this.pessoaNome + " " + pessoaSobrenome = " " e this.pessoaNome2 + " " + pessoaSobrenome2 = " ! ";`
+
+nomeProduto: string = 'coca-cola'; // :tipo faz a váriavel ficar tipada
+quantidade: number = 5; // No JS só existe number, para inteiros
+tamanho: number = 1.5; // ou para decimais.
+emEstoque: boolean = true; // Serva para falar se é verdadeiro ou falso
+
+qualquerCoisa: any;
+
+array = []; // Cria uma lista de coisas (variaveis)
+nomes = ['João', 'Maria', 'José', 'Madalena']; // array com itens
+// Permite que vários tipos sejam adicionados juntos.
+variaveis = [this.pessoaNome, this.nomeProduto, this.quantidade] // Tamanho: 3
+// Posição
+
+objeto = {} // Cria um objeto vazio.
+carro = {
+  modelo: 'Gol',
+  marca: 'VW',
+  ano: 1973,
+  licenciamento: false
+}; // Objeto com valores, composto por CHAVE: VALOR
+
+// Objetos usando variaveis.
+pessoa = {nome: this.pessoaNome, Sobrenome: this.pessoaNome, Nome2: this.pessoaNome2, Sobrenome2: this.pessoaSobrenome2};
+
+
+  constructor(){
+    alert (this.pessoaNome + " " + this.pessoaSobrenome + " e " + this.pessoaNome2 + " " + this.pessoaSobrenome2); // exibe um alerta chato na tela.
+    console.log (this.pessoaNome + " " + this.pessoaSobrenome + " e " + this.pessoaNome2 + " " + this.pessoaSobrenome2); // Exibe no console do navegador (f12).
+    console.log (this.pessoaNome + " " + this.pessoaSobrenome);
+    console.log (this.pessoaNome2, this.pessoaSobrenome2); // Aceita n vars.
+
+    console.log ("Arrays ==========");
+    console.log ('Posição [0] = ', this.nomes[0]);
+    console.log ('Posição [1] = ', this.nomes[1]);
+    console.log ('Array inteiros: ', this.nomes);
+    this.nomes[1] = "Claudio"; // Altera o nome da posição
+    console.log('Posição [1] alterado = ', this.nomes[1]);
+
+    console.log ("Objetos ======");
+    console.log ("Objetos inteiros: ", this.carro);
+    console.log ("Propriedade marca: ", this.carro.marca);
+    console.log ("Propriedade ano: ", this.carro['ano']);
+    this.carro.marca = "Volkswagen"; // Altera uma propriedade
+    this.carro['ano'] = 2000; // com uso do colchetes
+    console.log(this.carro); // Exibe depois de alterar
+
+}
+
+home.component.html
+<h2> Interpolação </h2>
+<p> Interpolação exibe o conteudo de uma variavel no HTML </p>
+<p><strong>Variavel pessoaNome: </strong> {{pessoaNome}} </p>
+<p><strong>Variavel quantidade: </strong> {{quantidade}} </p>
+<p><strong>Variavel tamanho: </strong> {{tamanho}} </p>
+<p><strong>Variavel emEstoque: </strong> {{emEstoque}} </p>
+<hr>
+<p><strong>Array: </strong> {{nomes}} </p>
+<p><strong>Array posição 1: </strong> {{nomes[1]}} </p>
+<hr>
+<p><strong>Objeto: </strong> {{carro}} </p>
+<p><strong>Objeto propriedade modelo: </strong> {{carro.modelo}} </p>
+<p><strong>Objeto propriedade ano: </strong> {{carro['ano']}} </p>
+
+ <app-card
+        nome="Celular"
+        descricao="Produto marca celular!"
+        validade="20/01/2023"
+        [quantidade]="3"
+        [valor_unitario]= "1000"
+        ></app-card>
+    </div> <!-- Fim da 1ª coluna -->
+
+    <div class="col">
+        <app-card
+        nome="Notebook"
+        descricao="Produto marca notebook!"
+        validade="21/04/2023"
+        [quantidade]="10"
+        [valor_unitario]="2000"
+        ></app-card>
+    </div><!-- Fim da 2ª coluna-->
+
+    <div class="col">
+        <app-card></app-card>
+    </div><!-- Fim da 3ª coluna-->
+
+    <div class="col">
+        <app-card></app-card>
+    </div><!-- Fim da 4ª coluna-->
+</div><!-- Fim da 1ª linha-->
+
+<br>
+
+<div class="row">
+    <div class="col">
+        <app-card></app-card>
+    </div> <!-- Fim da 1ª coluna -->
+
+    <div class="col">
+        <app-card></app-card>
+    </div><!-- Fim da 2ª coluna-->
+
+    <div class="col">
+        <app-card></app-card>
+    </div><!-- Fim da 3ª coluna-->
+
+    <div class="col">
+        <app-card></app-card>
+    </div><!-- Fim da 4ª coluna-->
+</div><!-- Fim da 1ª linha-->
